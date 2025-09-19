@@ -17,7 +17,15 @@
       "args": [
         "@playwright/mcp@latest"
       ]
-    }
+    },
+		"github": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["@github-mcp/cli@latest"],
+			"env": {
+				"GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+			}
+	}
 	},
 	"inputs": []
 }
