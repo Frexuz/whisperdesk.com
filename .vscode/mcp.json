@@ -1,0 +1,31 @@
+{
+	"servers": {
+		"context7": {
+			"type": "http",
+			"url": "https://mcp.context7.com/mcp"
+		},
+		"Linear": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"mcp-remote",
+				"https://mcp.linear.app/sse"
+			]
+		},
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+		"github": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["@github-mcp/cli@latest"],
+			"env": {
+				"GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+			}
+		}
+	},
+	"inputs": []
+}
