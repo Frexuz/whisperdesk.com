@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   # Custom JSON health endpoint
   get "health" => "health#show"
 
-  # Defines the root path route ("/")
+  # Tenant scoped routes (placeholder example scope) - future routes go inside
+  constraints(SubdomainRequiredConstraint.new) do
+    scope module: :tenanted do
+      # Example secured route placeholder
+      get "tenant_health" => "health#show"
+      resources :sample_items, only: :show
+    end
+  end
+
+  # Defines the root path route ("/") for marketing / non-tenant context
   root to: "health#show"
 end
