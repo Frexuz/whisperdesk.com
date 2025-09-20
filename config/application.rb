@@ -21,6 +21,9 @@ module Whisperdesk
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+  # Load middleware for multi-tenancy
+  config.autoload_paths << Rails.root.join('lib')
+  config.middleware.use SetCurrentTenant
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
